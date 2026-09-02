@@ -30,7 +30,7 @@ class NavItem extends StatelessWidget {
               child: Icon(
                 icon,
                 size: 22,
-                color: selected ? PawColors.pine : const Color(0xFFB0AA97),
+                color: selected ? PawColors.pine : PawColors.iconMuted,
               ),
             ),
           ),

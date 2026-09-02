@@ -11,7 +11,7 @@ class _PawPlaceholder extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [Color(0xFFFFB74D), PawColors.mustard]),
+        gradient: LinearGradient(begin: Alignment.topCenter, end: Alignment.bottomCenter, colors: [PawColors.photoGradientTop, PawColors.mustard]),
       ),
       child: LayoutBuilder(
         builder: (context, constraints) {

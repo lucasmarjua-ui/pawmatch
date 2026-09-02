@@ -56,3 +56,10 @@ ios/Runner/GoogleService-Info.plist
 macos/Runner/GoogleService-Info.plist
 .firebase/
 .firebaserc
+
+# Android release signing — losing this key.properties or the .jks means
+# never being able to publish an update to the same Play Store listing
+# again. Never commit either. Back both up outside this repo.
+android/key.properties
+android/app/*.jks
+android/app/*.keystore

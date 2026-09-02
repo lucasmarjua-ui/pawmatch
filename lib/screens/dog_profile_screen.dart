@@ -14,9 +14,9 @@ class _PurposeStyle {
 }
 
 const Map<MatchPurpose, _PurposeStyle> _purposeStyles = {
-  MatchPurpose.walkingBuddy: _PurposeStyle(icon: Icons.directions_walk, bg: Color(0xFFEAF3DE), fg: Color(0xFF3B6D11)),
-  MatchPurpose.playdates: _PurposeStyle(icon: Icons.sports_baseball_outlined, bg: Color(0xFFE6F1FB), fg: Color(0xFF185FA5)),
-  MatchPurpose.breeding: _PurposeStyle(icon: Icons.favorite_border, bg: Color(0xFFFBEAF0), fg: Color(0xFF993556)),
+  MatchPurpose.walkingBuddy: _PurposeStyle(icon: Icons.directions_walk, bg: PawColors.successBg, fg: PawColors.successDark),
+  MatchPurpose.playdates: _PurposeStyle(icon: Icons.sports_baseball_outlined, bg: PawColors.infoBg, fg: PawColors.info),
+  MatchPurpose.breeding: _PurposeStyle(icon: Icons.favorite_border, bg: PawColors.datingBg, fg: PawColors.dating),
 };
 
 class DogProfileScreen extends StatelessWidget {
@@ -125,7 +125,7 @@ class DogProfileScreen extends StatelessWidget {
                                 Container(
                                   padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 3),
                                   decoration: BoxDecoration(
-                                    color: dog.ownerIntent == OwnerIntent.datingToo ? const Color(0xFFFBEAF0) : const Color(0xFFEFE6D6),
+                                    color: dog.ownerIntent == OwnerIntent.datingToo ? PawColors.datingBg : PawColors.surfaceMuted,
                                     borderRadius: BorderRadius.circular(999),
                                   ),
                                   child: Text(
@@ -133,7 +133,7 @@ class DogProfileScreen extends StatelessWidget {
                                     style: bodyFont(
                                       fontSize: 11,
                                       fontWeight: FontWeight.w700,
-                                      color: dog.ownerIntent == OwnerIntent.datingToo ? const Color(0xFF993556) : PawColors.charcoal.withValues(alpha: 0.6),
+                                      color: dog.ownerIntent == OwnerIntent.datingToo ? PawColors.dating : PawColors.charcoal.withValues(alpha: 0.6),
                                     ),
                                   ),
                                 ),

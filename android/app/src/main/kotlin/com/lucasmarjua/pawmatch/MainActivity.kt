@@ -1,4 +1,4 @@
-package com.example.pawmatch
+package com.lucasmarjua.pawmatch
 
 import io.flutter.embedding.android.FlutterActivity
 

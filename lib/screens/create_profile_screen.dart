@@ -152,7 +152,7 @@ class _CreateProfileScreenState extends State<CreateProfileScreen> {
                       child: LinearProgressIndicator(
                         value: (_step + 1) / _totalSteps,
                         minHeight: 6,
-                        backgroundColor: const Color(0xFFEFE6D6),
+                        backgroundColor: PawColors.surfaceMuted,
                         color: PawColors.mustard,
                       ),
                     ),
@@ -233,7 +233,7 @@ class _CreateProfileScreenState extends State<CreateProfileScreen> {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: PawColors.mustard,
                     foregroundColor: PawColors.pine,
-                    disabledBackgroundColor: const Color(0xFFEFE6D6),
+                    disabledBackgroundColor: PawColors.surfaceMuted,
                     elevation: 0,
                     padding: const EdgeInsets.symmetric(vertical: 15),
                     shape: const StadiumBorder(),

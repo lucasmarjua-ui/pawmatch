@@ -19,9 +19,9 @@ class _PurposeStyle {
 }
 
 const Map<MatchPurpose, _PurposeStyle> _purposeStyles = {
-  MatchPurpose.walkingBuddy: _PurposeStyle(icon: Icons.directions_walk, fg: Color(0xFF3B6D11)),
-  MatchPurpose.playdates: _PurposeStyle(icon: Icons.sports_baseball_outlined, fg: Color(0xFF185FA5)),
-  MatchPurpose.breeding: _PurposeStyle(icon: Icons.favorite_border, fg: Color(0xFF993556)),
+  MatchPurpose.walkingBuddy: _PurposeStyle(icon: Icons.directions_walk, fg: PawColors.successDark),
+  MatchPurpose.playdates: _PurposeStyle(icon: Icons.sports_baseball_outlined, fg: PawColors.info),
+  MatchPurpose.breeding: _PurposeStyle(icon: Icons.favorite_border, fg: PawColors.dating),
 };
 
 class MatchesScreen extends StatelessWidget {

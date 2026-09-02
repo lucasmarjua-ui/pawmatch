@@ -78,7 +78,7 @@ class _ChatScreenState extends State<ChatScreen> {
         content: Text(message, style: GoogleFonts.manrope(fontSize: 13.5, color: PawColors.charcoal.withValues(alpha: 0.7))),
         actions: [
           TextButton(onPressed: () => Navigator.of(dialogContext).pop(false), child: Text('Cancel', style: GoogleFonts.manrope(color: PawColors.charcoal.withValues(alpha: 0.6)))),
-          TextButton(onPressed: () => Navigator.of(dialogContext).pop(true), child: Text(confirmLabel, style: GoogleFonts.manrope(fontWeight: FontWeight.w700, color: const Color(0xFFD85A30)))),
+          TextButton(onPressed: () => Navigator.of(dialogContext).pop(true), child: Text(confirmLabel, style: GoogleFonts.manrope(fontWeight: FontWeight.w700, color: PawColors.danger))),
         ],
       ),
     );
@@ -118,7 +118,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 ),
               );
             },
-            child: Text('Report', style: GoogleFonts.manrope(fontWeight: FontWeight.w700, color: const Color(0xFFD85A30))),
+            child: Text('Report', style: GoogleFonts.manrope(fontWeight: FontWeight.w700, color: PawColors.danger)),
           ),
         ],
       ),
@@ -138,7 +138,7 @@ class _ChatScreenState extends State<ChatScreen> {
             // Header
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 14),
-              decoration: const BoxDecoration(border: Border(bottom: BorderSide(color: Color(0xFFE4DBC9), width: 0.5))),
+              decoration: const BoxDecoration(border: Border(bottom: BorderSide(color: PawColors.borderMuted, width: 0.5))),
               child: Row(
                 children: [
                   IconButton(
@@ -159,7 +159,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text('${widget.dogName} & ${widget.ownerName}', style: bodyFont(fontSize: 14, fontWeight: FontWeight.w600, color: PawColors.pine)),
-                        Text('Active now', style: bodyFont(fontSize: 11, color: const Color(0xFF639922))),
+                        Text('Active now', style: bodyFont(fontSize: 11, color: PawColors.success)),
                       ],
                     ),
                   ),
@@ -294,7 +294,7 @@ class _MessageBubble extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
             decoration: BoxDecoration(
               color: isMe ? PawColors.pine : Colors.white,
-              border: isMe ? null : Border.all(color: const Color(0xFFE4DBC9)),
+              border: isMe ? null : Border.all(color: PawColors.borderMuted),
               borderRadius: BorderRadius.only(
                 topLeft: const Radius.circular(16),
                 topRight: const Radius.circular(16),

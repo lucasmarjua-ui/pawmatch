@@ -7,6 +7,33 @@
 A Flutter app to match dogs and their owners — for breeding, playdates, and
 finding a walking buddy nearby.
 
+## Screenshots
+
+<table>
+  <tr>
+    <td align="center" width="20%">
+      <img src="screenshots/onboarding.png" width="180" alt="Onboarding screen"><br>
+      Onboarding
+    </td>
+    <td align="center" width="20%">
+      <img src="screenshots/discover.png" width="180" alt="Discover swipe deck"><br>
+      Discover
+    </td>
+    <td align="center" width="20%">
+      <img src="screenshots/matches.png" width="180" alt="Matches list"><br>
+      Matches
+    </td>
+    <td align="center" width="20%">
+      <img src="screenshots/chat.png" width="180" alt="Chat conversation"><br>
+      Chat
+    </td>
+    <td align="center" width="20%">
+      <img src="screenshots/profile.png" width="180" alt="My profile screen"><br>
+      My profile
+    </td>
+  </tr>
+</table>
+
 ## Status
 
 Rebuilt from scratch after the original codebase was lost. Currently runs on
@@ -35,6 +62,13 @@ flutter pub get
 flutter run
 ```
 
+The launcher icon is generated from `assets/icon/`; regenerate it after
+changing the source image with:
+
+```bash
+dart run flutter_launcher_icons
+```
+
 To check everything still compiles and passes after making changes:
 
 ```bash
@@ -59,8 +93,8 @@ against `main`.
   likes back.
 - **No session persistence.** Signing out or restarting the app always
   returns to onboarding — there's no local token/session cache.
-- **No app icons/splash screen.** Both platforms still ship Flutter's
-  default launcher icon.
+- **No splash screen.** The launcher icon is set (`assets/icon/`), but
+  both platforms still show Flutter's default splash on cold start.
 
 ## Contact
 

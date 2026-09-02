@@ -134,7 +134,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   Container(
                     padding: const EdgeInsets.all(4),
                     decoration: BoxDecoration(
-                      color: const Color(0xFFEFE6D6),
+                      color: PawColors.surfaceMuted,
                       borderRadius: BorderRadius.circular(999),
                     ),
                     child: Row(
@@ -179,7 +179,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     const SizedBox(height: 12),
                     Text(
                       errorMessage,
-                      style: bodyFont(fontSize: 12.5, color: const Color(0xFFD85A30)),
+                      style: bodyFont(fontSize: 12.5, color: PawColors.danger),
                     ),
                   ],
 

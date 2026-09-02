@@ -175,7 +175,7 @@ class MyProfileScreen extends StatelessWidget {
                         Container(
                           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
                           decoration: BoxDecoration(
-                            color: dog.ownerIntent == OwnerIntent.datingToo ? const Color(0xFFFBEAF0) : const Color(0xFFEFE6D6),
+                            color: dog.ownerIntent == OwnerIntent.datingToo ? PawColors.datingBg : PawColors.surfaceMuted,
                             borderRadius: BorderRadius.circular(999),
                           ),
                           child: Text(
@@ -183,7 +183,7 @@ class MyProfileScreen extends StatelessWidget {
                             style: bodyFont(
                               fontSize: 11,
                               fontWeight: FontWeight.w600,
-                              color: dog.ownerIntent == OwnerIntent.datingToo ? const Color(0xFF993556) : PawColors.charcoal.withValues(alpha: 0.6),
+                              color: dog.ownerIntent == OwnerIntent.datingToo ? PawColors.dating : PawColors.charcoal.withValues(alpha: 0.6),
                             ),
                           ),
                         ),
@@ -191,13 +191,13 @@ class MyProfileScreen extends StatelessWidget {
                         if (dog.isLookingForBreeding)
                           Container(
                             padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 3),
-                            decoration: BoxDecoration(color: const Color(0xFFEAF3DE), borderRadius: BorderRadius.circular(999)),
+                            decoration: BoxDecoration(color: PawColors.successBg, borderRadius: BorderRadius.circular(999)),
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                Container(width: 6, height: 6, decoration: const BoxDecoration(color: Color(0xFF639922), shape: BoxShape.circle)),
+                                Container(width: 6, height: 6, decoration: const BoxDecoration(color: PawColors.success, shape: BoxShape.circle)),
                                 const SizedBox(width: 5),
-                                Text('Available for breeding', style: bodyFont(fontSize: 11, fontWeight: FontWeight.w600, color: const Color(0xFF3B6D11))),
+                                Text('Available for breeding', style: bodyFont(fontSize: 11, fontWeight: FontWeight.w600, color: PawColors.successDark)),
                               ],
                             ),
                           ),
@@ -262,7 +262,7 @@ class _StatsRow extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: const Color(0xFFE4DBC9)),
+        border: Border.all(color: PawColors.borderMuted),
         boxShadow: [BoxShadow(color: PawColors.charcoal.withValues(alpha: 0.05), blurRadius: 14, offset: const Offset(0, 4))],
       ),
       child: Row(
@@ -309,7 +309,7 @@ class _SettingsCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: const Color(0xFFE4DBC9)),
+        border: Border.all(color: PawColors.borderMuted),
         boxShadow: [BoxShadow(color: PawColors.charcoal.withValues(alpha: 0.05), blurRadius: 14, offset: const Offset(0, 4))],
       ),
       child: Column(children: children),
@@ -336,12 +336,12 @@ class _SettingsRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = isDestructive ? const Color(0xFFD85A30) : PawColors.pine;
+    final color = isDestructive ? PawColors.danger : PawColors.pine;
     return InkWell(
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-        decoration: const BoxDecoration(border: Border(bottom: BorderSide(color: Color(0xFFEFE6D6), width: 0.5))),
+        decoration: const BoxDecoration(border: Border(bottom: BorderSide(color: PawColors.surfaceMuted, width: 0.5))),
         child: Row(
           children: [
             Icon(icon, size: 18, color: color),

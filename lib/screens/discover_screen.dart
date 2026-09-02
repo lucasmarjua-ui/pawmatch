@@ -155,7 +155,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                       child: Container(
                         width: 34, height: 34,
                         decoration: BoxDecoration(
-                          color: hasFilters ? PawColors.pine : const Color(0xFFEFE6D6),
+                          color: hasFilters ? PawColors.pine : PawColors.surfaceMuted,
                           shape: BoxShape.circle,
                         ),
                         child: Icon(Icons.tune, size: 16, color: hasFilters ? PawColors.mustard : PawColors.pine),
@@ -537,10 +537,10 @@ class _MatchDialog extends StatelessWidget {
               const SizedBox(height: 10),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                decoration: BoxDecoration(color: const Color(0xFFFBEAF0), borderRadius: BorderRadius.circular(999)),
+                decoration: BoxDecoration(color: PawColors.datingBg, borderRadius: BorderRadius.circular(999)),
                 child: Text(
                   '💕 ${dog.ownerName} is open to more than a walk too',
-                  style: bodyFont(fontSize: 12, fontWeight: FontWeight.w600, color: const Color(0xFF993556)),
+                  style: bodyFont(fontSize: 12, fontWeight: FontWeight.w600, color: PawColors.dating),
                 ),
               ),
             ],
