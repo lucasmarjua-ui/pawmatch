@@ -1,30 +1,87 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:pawmatch/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
+  testWidgets('Shows the sign-in form when signed out', (WidgetTester tester) async {
     await tester.pumpWidget(const MyApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    expect(find.text('Pawmatch'), findsOneWidget);
+    expect(find.widgetWithText(ElevatedButton, 'Sign in'), findsOneWidget);
+  });
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
+  testWidgets('Signing in with valid credentials reaches Discover', (WidgetTester tester) async {
+    await tester.pumpWidget(const MyApp());
+
+    await tester.enterText(find.byType(TextField).at(0), 'lucas@pawmatch.app');
+    await tester.enterText(find.byType(TextField).at(1), 'password123');
+    final signInButton = find.widgetWithText(ElevatedButton, 'Sign in');
+    await tester.ensureVisible(signInButton);
+    await tester.tap(signInButton);
+    await tester.pumpAndSettle();
+
+    expect(find.byIcon(Icons.explore_outlined), findsOneWidget);
+  });
+
+  testWidgets('Rejects an invalid email before calling the auth service', (WidgetTester tester) async {
+    await tester.pumpWidget(const MyApp());
+
+    await tester.enterText(find.byType(TextField).at(0), 'not-an-email');
+    await tester.enterText(find.byType(TextField).at(1), 'password123');
+    final signInButton = find.widgetWithText(ElevatedButton, 'Sign in');
+    await tester.ensureVisible(signInButton);
+    await tester.tap(signInButton);
     await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    expect(find.text('Enter a valid email address.'), findsOneWidget);
+    expect(find.byIcon(Icons.explore_outlined), findsNothing);
+  });
+
+  testWidgets('Signing up leads to profile creation before Discover', (WidgetTester tester) async {
+    await tester.pumpWidget(const MyApp());
+
+    await tester.tap(find.widgetWithText(GestureDetector, 'Sign up').first);
+    await tester.pump();
+    await tester.enterText(find.byType(TextField).at(0), 'newowner@pawmatch.app');
+    await tester.enterText(find.byType(TextField).at(1), 'password123');
+    final createAccountButton = find.widgetWithText(ElevatedButton, 'Create account');
+    await tester.ensureVisible(createAccountButton);
+    await tester.tap(createAccountButton);
+    await tester.pumpAndSettle();
+
+    // Debe aterrizar en CreateProfileScreen, no directo en Discover.
+    expect(find.text("Let's meet your dog"), findsOneWidget);
+    expect(find.byIcon(Icons.explore_outlined), findsNothing);
+
+    // Paso 1: datos básicos del perro.
+    await tester.enterText(find.byKey(const Key('dogNameField')), 'Nala');
+    await tester.enterText(find.byKey(const Key('breedField')), 'Poodle');
+    await tester.enterText(find.byKey(const Key('ageField')), '3');
+    await tester.pump();
+    await tester.tap(find.widgetWithText(ElevatedButton, 'Continue'));
+    await tester.pumpAndSettle();
+
+    // Paso 2: foto — sin campos obligatorios.
+    await tester.tap(find.widgetWithText(ElevatedButton, 'Continue'));
+    await tester.pumpAndSettle();
+
+    // Paso 3: qué busca — hay que elegir al menos un propósito.
+    await tester.tap(find.text('Walking buddy'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.widgetWithText(ElevatedButton, 'Continue'));
+    await tester.pumpAndSettle();
+
+    // Paso 4: personalidad — opcional.
+    await tester.tap(find.widgetWithText(ElevatedButton, 'Continue'));
+    await tester.pumpAndSettle();
+
+    // Paso 5: sobre ti — el nombre del dueño es obligatorio.
+    await tester.enterText(find.byKey(const Key('ownerNameField')), 'Sam');
+    await tester.pump();
+    await tester.tap(find.widgetWithText(ElevatedButton, 'Finish'));
+    await tester.pumpAndSettle();
+
+    expect(find.byIcon(Icons.explore_outlined), findsOneWidget);
   });
 }

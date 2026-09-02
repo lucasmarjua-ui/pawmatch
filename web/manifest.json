@@ -1,11 +1,11 @@
 {
-    "name": "pawmatch",
-    "short_name": "pawmatch",
+    "name": "PawMatch",
+    "short_name": "PawMatch",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#FAF3E8",
+    "theme_color": "#253226",
+    "description": "Match dogs and their owners for breeding, playdates, and walking buddies.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

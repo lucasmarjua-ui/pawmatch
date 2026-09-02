@@ -48,3 +48,11 @@ app.*.map.json
 .widget_preview/
 
 android/app/google-services.json
+
+# Firebase config — generated per-environment, never commit real keys.
+# lib/firebase_options.dart is produced by `flutterfire configure`.
+lib/firebase_options.dart
+ios/Runner/GoogleService-Info.plist
+macos/Runner/GoogleService-Info.plist
+.firebase/
+.firebaserc
