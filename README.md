@@ -1,5 +1,9 @@
 # PawMatch
 
+![CI](https://github.com/lucasmarjua-ui/pawmatch/actions/workflows/ci.yaml/badge.svg)
+![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
+![Flutter](https://img.shields.io/badge/Flutter-3.x-02569B?logo=flutter&logoColor=white)
+
 A Flutter app to match dogs and their owners — for breeding, playdates, and
 finding a walking buddy nearby.
 
@@ -57,3 +61,13 @@ against `main`.
   returns to onboarding — there's no local token/session cache.
 - **No app icons/splash screen.** Both platforms still ship Flutter's
   default launcher icon.
+
+## Contact
+
+Built by **Don Lucas**. Feel free to open an issue, or reach out via the
+contact info on my [GitHub profile](https://github.com/lucasmarjua-ui), if
+you'd like to talk about this project.
+
+## License
+
+Distributed under the MIT License — see [LICENSE](LICENSE) for details.
