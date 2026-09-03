@@ -98,7 +98,7 @@ against `main`.
 
 ## Contact
 
-Built by **Don Lucas**. Feel free to open an issue, or reach out via the
+Built by **Lucas Martinez**. Feel free to open an issue, or reach out via the
 contact info on my [GitHub profile](https://github.com/lucasmarjua-ui), if
 you'd like to talk about this project.
 
