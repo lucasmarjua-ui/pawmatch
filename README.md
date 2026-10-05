@@ -7,6 +7,17 @@
 A Flutter app to match dogs and their owners — for breeding, playdates, and
 finding a walking buddy nearby.
 
+## Contents
+
+- [Screenshots](#screenshots)
+- [Features](#features)
+- [Tech stack](#tech-stack)
+- [Status](#status)
+- [Architecture](#architecture)
+- [Getting started](#getting-started)
+- [Testing](#testing)
+- [Known gaps](#known-gaps)
+
 ## Screenshots
 
 <table>
@@ -33,6 +44,24 @@ finding a walking buddy nearby.
     </td>
   </tr>
 </table>
+
+## Features
+
+- **Onboarding and profile creation** — set up your dog's profile, say what you're looking for (playdates, walks or breeding) and add optional owner interests.
+- **Discover** — swipe through nearby dogs with breed, age, owner and a compatibility percentage, rewind the last swipe, and filter by purpose, distance and owner intent.
+- **Matches** — every match appears in a list with its latest message, with an empty state that leads back to swiping.
+- **Chat** — one-to-one conversations with each match, including a report flow for safety.
+- **My profile** — edit your dog's details and availability for breeding.
+
+## Tech stack
+
+| Area | Tools |
+|---|---|
+| Framework | Flutter 3, Dart |
+| State management | [provider](https://pub.dev/packages/provider) (`ChangeNotifier`) |
+| Typography | [google_fonts](https://pub.dev/packages/google_fonts) |
+| Backend (planned) | Firebase Authentication + Cloud Firestore |
+| Quality | `flutter analyze`, `flutter test`, GitHub Actions CI |
 
 ## Status
 
@@ -78,6 +107,18 @@ flutter test
 
 CI (`.github/workflows/ci.yaml`) runs both on every push and pull request
 against `main`.
+
+## Testing
+
+The suite under `test/` (40 tests) covers the models, every provider and the main auth flows:
+
+| File | What it checks |
+|---|---|
+| `test/models/dog_model_test.dart` | Purpose and owner-intent keys, `toMap`/`fromMap` round-trips, `copyWith` and defaults |
+| `test/providers/auth_provider_test.dart` | Sign-in, sign-up, sign-out, error states and profile completion |
+| `test/providers/dog_provider_test.dart` | Discover queue loading, swiping, rewind, filters and profile edits |
+| `test/providers/match_provider_test.dart` | Conversations, optimistic messages, new matches and unmatching |
+| `test/widget_test.dart` | Sign-in, input validation and sign-up flows through the real widget tree |
 
 ## Known gaps
 
